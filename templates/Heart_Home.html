@@ -1,0 +1,163 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+
+<style>
+body{
+background-image:url("https://wallpaperaccess.com/full/185895.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+}
+ .footer-images img{
+        vertical-align:bottom;
+        border:0;
+        }
+</style>
+</head>
+<body>
+    <!-- As a heading -->
+        <div class="text-center">
+        <div class="btn btn-success">
+                <h1 class="text-warning">Heart Disease Prediction</h1>
+            </div>
+        </div>
+
+
+    <br><br>
+        <div class="container col-sm-10">
+
+            <form action="\predict" method="post" class = 'card p-3 bg-white form-group'>
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                                <h5 >Age</h5>
+                                <input class="form-control" type="number" name="age" id="age" required="required">
+                    </div>
+                    <div class="col-sm-4">
+                                <h5 >Sex</h5>
+                                <select name="sex" id="sex" class="form-control" required="required">
+                                    <option value="0">Female</option>
+                                    <option value="1">Male</option>
+                                </select>
+                    </div>
+                    <div class="col-sm-4">
+                                <h5 >Chest Pain Type</h5>
+                                <select name="cp" id="cp" class="form-control" required="required">
+                                    <option value="0">Typical Angine</option>
+                                    <option value="1">Atypical Angina</option>
+                                    <option value="2">Non-anginal Pain</option>
+                                    <option value="3">Asymtomatic</option>
+                                </select>
+                        </div>
+                    </div>
+                <br>
+                <div class="row">
+
+                    <div class="col-sm-4">
+                                <h5 >Resting Blood Pressure</h5>
+                                <input type="number" class="form-control" name="trestbps" id ="trestbps" required="required">
+                        </div>
+                    <div class="col-sm-4">
+                                <h5>Serum Cholestoral </h5>
+                                <input type="number" class="form-control" name="chol" id="chol" required="required">
+                    </div>
+                    <div class="col-sm-4">
+                                <h5>Fasting Blood Pressure</h5>
+                                <select name="fbs" id="fbs" class="form-control" required="required">
+                                    <option value="0">Less than 120 mg/dl</option>
+                                    <option value="1">Greater than 120 mg/dl</option>
+                                </select>
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h5 >Resting ECG results</h5>
+                        <select name="restecg" id="restecg" class="form-control" required="required">
+                            <option value="0">Normal</option>
+                            <option value="1">Having ST-T wave abnormality</option>
+                            <option value="2">Probable or definite lef ventricular</option>
+                        </select>
+                            </div>
+                        <div class="col-sm-4">
+                                    <h5>Thalach</h5>
+                                    <!-- Total Stops -->
+                                    <input type="number" class="form-control" name="thalach" id="thalach" required="required">
+                        </div>
+                    <div class="col-sm-4">
+                        <h5>Exercise IA</h5>
+                        <select name="exang" id="exang" class="form-control" required="required">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+             </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                                <h5 >Old Peak</h5>
+                                <input type="number" name="oldpeak" id='oldpeak' class="form-control" required="required">
+                        </div>
+                     <div class="col-sm-4">
+                            <h5>Slope of the PE</h5>
+                            <select name="slope" id="slope" class="form-control" required="required">
+                                <option value="0">Upsloping</option>
+                                <option value="1">Flat</option>
+                                <option value="2">Downsloping</option>
+                            </select>
+                </div>
+                <div class="col-sm-4">
+                            <h5>ca</h5>
+                            <select name="ca" id="ca"  class="form-control" required="required">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h5>thal</h5>
+                        <select name="thal" id="thal" class="form-control" required="required">
+                            <option value="0">Normal</option>
+                            <option value="1">fixed defect</option>
+                            <option value="2">Reversable defect</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+                <!-- Submit -->
+                <div class="text-center">
+                <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </form>
+            <div class="text-center">
+            {% if prediction==1 %}
+				<h1 class="bg-danger ">You may have chances of Heart Disease.</h1>
+
+			{% elif prediction==0 %}
+				<h1 class=" bg-success ">You don't have chances of Heart Disease.</h1>
+
+			{% endif %}
+            </div>
+            <br>
+    </div>
+    </body>
+</html>
